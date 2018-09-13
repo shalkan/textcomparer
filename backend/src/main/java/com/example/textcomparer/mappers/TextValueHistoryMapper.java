@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.*;
 public interface TextValueHistoryMapper {
 
   @Insert("insert into text_value_history_table(when_edit, text_value_id, text_value) values(#{audWhen}, #{id}, #{textValue})")
-  Long createTextValueHistory(TextValue textValue);
+  void createTextValueHistory(TextValue textValue);
 
   @Select("select id, when_edit, text_value_id, text_value from text_value_history_table where text_value_id=#{textValueId}")
   @Results({

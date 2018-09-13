@@ -7,20 +7,11 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "babel-core": "^6.0.0",
-    "babel-eslint": "^7.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-plugin-transform-runtime": "^6.0.0",
-    "babel-polyfill": "^6.16.0",
-    "babel-preset-es2015": "^6.0.0",
-    "babel-preset-stage-2": "^6.0.0",
-    "babel-register": "^6.0.0",
-    "element-ui": "^2.0.2",
-    "vue": "^2.5.2",
+    "moment": "^2.22.2",
+    "text-diff": "^1.0.1",
     "vue-router": "^2.4.0",
     "vuex": "^2.1.2",
-    "vuex-router-sync": "^4.1.2",
-    "webpack": "^2.2.1"
+    "vuex-router-sync": "^4.1.2"
   },
   "engines": {
     "node": ">=6"

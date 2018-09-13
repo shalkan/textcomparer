@@ -42,14 +42,16 @@ public class TextValueServiceImpl implements TextValueService {
 
   @Override
   public TextValue createTextValue(TextValue textValue) {
-    textValue = textValueMapper.findTextValueById(textValueMapper.insertTextValue(textValue));
+    textValueMapper.insertTextValue(textValue);
+    textValue = textValueMapper.findTextValueById(textValue.getId());
     textValueHistoryMapper.createTextValueHistory(textValue);
     return textValue;
   }
 
   @Override
   public TextValue updateTextValue(TextValue textValue) {
-    textValue = textValueMapper.findTextValueById(textValueMapper.updateTextValue(textValue));
+    textValueMapper.updateTextValue(textValue);
+    textValue = textValueMapper.findTextValueById(textValue.getId());
     textValueHistoryMapper.createTextValueHistory(textValue);
     return textValue;
   }

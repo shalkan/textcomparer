@@ -7,12 +7,12 @@ import org.apache.ibatis.annotations.*;
 
 public interface TextValueMapper {
 
-  @Insert("insert into text_value_table(text_value) values(#{textValue})")
-//  @SelectKey(statement="call identity()", keyProperty="id", before=false, resultType=Long.class)
-  Long insertTextValue(TextValue textValue);
+  @Insert("insert into text_value_table(id, text_value) values(#{id}, #{textValue})")
+  @SelectKey(statement="SELECT nextVal('text_value_table_id_seq')", keyProperty="id", before=true, resultType=Long.class)
+  void insertTextValue(TextValue textValue);
 
   @Insert("update text_value_table set text_value = #{textValue}, aud_when = now()where id=#{id}")
-  Long updateTextValue(TextValue textValue);
+  void updateTextValue(TextValue textValue);
 
   @Select("select id, text_value, aud_when, aud_when_create from text_value_table WHERE id=#{id}")
   @Results({

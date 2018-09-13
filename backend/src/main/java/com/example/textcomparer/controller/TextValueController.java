@@ -1,6 +1,5 @@
 package com.example.textcomparer.controller;
 
-import java.util.Collections;
 import java.util.List;
 
 import com.example.textcomparer.entity.TextValue;
@@ -21,6 +20,11 @@ public class TextValueController {
     return textValueService.getTextValues();
   }
 
+  @GetMapping("/{id}")
+  public TextValue getTextValue(@PathVariable Long id) {
+    return textValueService.getTextValue(id);
+  }
+
   @PostMapping
   public TextValue createTextValue(@RequestBody TextValue textValue) {
     return textValueService.createTextValue(textValue);
@@ -37,7 +41,7 @@ public class TextValueController {
   }
 
   @GetMapping("/history")
-  public List<TextValueHistory> getTextValueHistory(@RequestParam long textValueId) {
+  public List<TextValueHistory> getTextValueHistory(@RequestParam Long textValueId) {
     return textValueService.getTextValueHistories(textValueId);
   }
 }

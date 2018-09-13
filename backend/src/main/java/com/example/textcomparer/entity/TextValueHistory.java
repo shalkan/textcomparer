@@ -1,13 +1,14 @@
 package com.example.textcomparer.entity;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class TextValueHistory {
 
   private Long id;
   private Date whenEdit;
   private Long textValueId;
-  private Long textValue;
+  private String textValue;
 
   public Long getId() {
     return id;
@@ -33,11 +34,34 @@ public class TextValueHistory {
     this.textValueId = textValueId;
   }
 
-  public Long getTextValue() {
+  public String getTextValue() {
     return textValue;
   }
 
-  public void setTextValue(Long textValue) {
+  public void setTextValue(String textValue) {
     this.textValue = textValue;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(this.id, this.whenEdit, this.textValueId, this.textValue);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null)
+      return false;
+    if (!(obj instanceof TextValueHistory))
+      return false;
+
+    TextValueHistory textValueHistory = (TextValueHistory) obj;
+    if (this.id != null && this.whenEdit != null && this.textValueId != null) {
+      return this.id.equals(textValueHistory.id) && this.whenEdit.equals(textValueHistory.whenEdit)
+          && this.textValueId.equals(textValueHistory.textValueId)
+          && this.textValue.equals(textValueHistory.textValue);
+    }
+    else {
+      return false;
+    }
   }
 }
