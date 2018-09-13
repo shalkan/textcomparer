@@ -5,4 +5,4 @@ to run app follow next steps:
   
 2.  run 'mvn clean install && mvn --projects backend spring-boot:run' from project's root folder
   (to get maven visit https://maven.apache.org/users/index.html)
-  Application will be available on http://localhots:8090
+  Application will be available on http://localhost:8090
